@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>CN Protocol Visualizer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<!-- NAVBAR -->
+
+<div class="w-full flex justify-between items-center px-6 py-3 border-b border-slate-700 bg-slate-950 sticky top-0 z-50">
+  <div class="text-cyan-400 font-bold text-lg">
+    CN Protocol Visualizer
+  </div>
+
+  <div class="flex gap-3">
+    <button onclick="location.href='learn.html'" class="nav-btn">Learn</button>
+    <button onclick="openHelp()" class="nav-btn">Help</button>
+    <button onclick="downloadPDF()" class="nav-btn">Download</button>
+    <button onclick="openDev()" class="nav-btn">Developed By</button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="flex flex-col justify-center items-center h-[80vh]">
+
+  <h1 class="text-3xl font-bold mb-6 text-cyan-400">
+    Controlled Access Protocols
+  </h1>
+
+  <div class="flex gap-6">
+
+
+<a href="polling.html" class="card-btn">Polling</a>
+
+<a href="voting.html" class="card-btn">Voting</a>
+
+<a href="reservation.html" class="card-btn">Reservation</a>
+
+
+  </div>
+
+</div>
+
+<!-- HELP MODAL -->
+
+<div id="helpModal" class="modal">
+  <div class="modal-box">
+    <h2 class="text-xl font-bold mb-2">Help</h2>
+    <p>Open any protocol and click Start to simulate.</p>
+    <p>Use inputs below simulation for numerical calculations.</p>
+    <button onclick="closeHelp()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- DEVELOPED BY -->
+<!-- DEVELOPED BY MODAL -->
+
+<div id="devModal" class="modal">
+  <div class="modal-box">
+
+<h2 class="text-xl font-bold text-cyan-400 text-center mb-4">
+  Developed By
+</h2>
+
+<div class="team-grid">
+
+  <div class="team-card">
+    <img src="images/abhijeet.jpg" class="team-img">
+    <div class="team-name">Abhijeet Kumar</div>
+    <div class="team-reg">24BYB1129</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/shrish.jpg" class="team-img">
+    <div class="team-name">Shrish Ahankari</div>
+    <div class="team-reg">24BYB1150</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/swammi_sir.jpg" class="team-img">
+    <div class="team-name">Dr. Swaminathan Annadurai</div>
+    <div class="team-role">Project Guide</div>
+  </div>
+
+</div>
+
+<div class="text-center mt-4">
+  <button onclick="closeDev()" class="close-btn">Close</button>
+</div>
+
+
+  </div>
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

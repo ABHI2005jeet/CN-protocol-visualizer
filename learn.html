@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Learn CN Protocols</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<!-- NAVBAR -->
+
+<div class="w-full flex justify-between items-center px-6 py-3 border-b border-slate-700 bg-slate-950 sticky top-0">
+  <div class="text-cyan-400 font-bold">Learn - CN Protocols</div>
+
+  <div class="flex gap-3">
+    <button onclick="location.href='index.html'" class="nav-btn">Home</button>
+    <button onclick="openHelp()" class="nav-btn">Help</button>
+    <button onclick="openDev()" class="nav-btn">Developed By</button>
+  </div>
+</div>
+
+<div class="p-6 space-y-10">
+
+<!-- ================= POLLING ================= -->
+
+<div class="card">
+
+<h2 class="text-cyan-400 text-xl font-bold mb-2">Polling Protocol</h2>
+<div class="bg-slate-900 border border-cyan-500 p-4 rounded-xl mt-3 mb-4">
+  <h3 class="text-cyan-400 font-semibold">📌 Numerical Nature</h3>
+  <p>Polling is mostly conceptual.</p>
+  <p class="mt-1">Basic formula:</p>
+  <p class="text-green-400 font-bold">Delay = n × t</p>
+  <p class="text-gray-400 mt-1">No complex derivations are involved.</p>
+</div>
+
+<p><b>Definition:</b> Polling is a controlled access mechanism in which a central controller (master) asks each node sequentially whether it has data to transmit.</p>
+
+<p><b>Relevance in CN:</b> It belongs to Controlled Access protocols in MAC layer and avoids collisions.</p>
+
+<p><b>Working:</b></p>
+<ul class="list-disc ml-6">
+<li>Master node sends request to node 1</li>
+<li>If node has data → it transmits</li>
+<li>Else → master moves to next node</li>
+<li>Cycle continues for all nodes</li>
+</ul>
+
+<p><b>Real Life Example:</b> Teacher calling students one by one.</p>
+
+<p><b>Example 1:</b>  
+4 nodes, each takes 2 ms → Total delay = 8 ms</p>
+
+<p><b>Example 2:</b>  
+If node 3 has data, it must wait for its turn → delay increases.</p>
+
+<p><b>Advantages:</b></p>
+<ul class="list-disc ml-6">
+<li>No collision</li>
+<li>Simple</li>
+</ul>
+
+<p><b>Disadvantages:</b></p>
+<ul class="list-disc ml-6">
+<li>High delay</li>
+<li>Idle polling wastes time</li>
+</ul>
+
+<!-- 🎥 VIDEO -->
+
+<h3 class="text-cyan-300 mt-4">🎥 Video Explanation</h3>
+<iframe width="100%" height="250"
+src="https://www.youtube.com/embed/Zp8UBSEVPdc"
+frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+<!-- ================= VOTING ================= -->
+
+<div class="card">
+
+<h2 class="text-cyan-400 text-xl font-bold mb-2">Voting Protocol</h2>
+<div class="bg-slate-900 border border-cyan-500 p-4 rounded-xl mt-3 mb-4">
+  <h3 class="text-cyan-400 font-semibold">📌 Numerical Nature</h3>
+  <p>Voting is purely logical and conceptual.</p>
+  <p class="mt-1">Based on quorum rule:</p>
+  <p class="text-green-400 font-bold">q > n / 2</p>
+  <p class="text-gray-400 mt-1">No heavy calculations are required.</p>
+</div>
+
+<p><b>Definition:</b> Voting protocol is used to maintain consistency in distributed systems using quorum.</p>
+
+<p><b>Relevance in CN:</b> Used in distributed databases and consistency control.</p>
+
+<p><b>Working:</b></p>
+<ul class="list-disc ml-6">
+<li>Each node casts a vote</li>
+<li>If votes ≥ quorum → operation allowed</li>
+<li>Else → denied</li>
+</ul>
+
+<p><b>Real Life Example:</b> Election system.</p>
+
+<p><b>Example 1:</b>  
+5 nodes, quorum = 3 → valid system</p>
+
+<p><b>Example 2:</b>  
+5 nodes, quorum = 2 → unsafe system</p>
+
+<p><b>Advantages:</b></p>
+<ul class="list-disc ml-6">
+<li>Ensures consistency</li>
+<li>Fault tolerant</li>
+</ul>
+
+<p><b>Disadvantages:</b></p>
+<ul class="list-disc ml-6">
+<li>Overhead in voting</li>
+<li>Complex</li>
+</ul>
+
+<!-- 📚 ARTICLE -->
+
+<h3 class="text-cyan-300 mt-4">📚 Learn More</h3>
+<a href="https://www.geeksforgeeks.org/quorum-based-protocol-in-distributed-system/" target="_blank" class="text-blue-400 underline">
+Quorum Protocol Article
+</a>
+
+</div>
+
+<!-- ================= RESERVATION ================= -->
+
+<div class="card">
+
+<h2 class="text-cyan-400 text-xl font-bold mb-2">Reservation Protocol</h2>
+<div class="bg-slate-900 border border-cyan-500 p-4 rounded-xl mt-3 mb-4">
+  <h3 class="text-cyan-400 font-semibold">📌 Numerical Nature</h3>
+  <p>Reservation has slight numerical aspect.</p>
+  <p class="mt-1">Efficiency formula:</p>
+  <p class="text-green-400 font-bold">Efficiency = Used Slots / Total Slots</p>
+  <p class="text-gray-400 mt-1">It is still a simple ratio-based calculation.</p>
+</div>
+
+<p><b>Definition:</b> Reservation protocol allows stations to reserve time slots before transmission.</p>
+
+<p><b>Relevance in CN:</b> Controlled Access protocol in MAC layer.</p>
+
+<p><b>Working:</b></p>
+<ul class="list-disc ml-6">
+<li>Time divided into frames</li>
+<li>Each station reserves slot</li>
+<li>Transmission happens in reserved slot</li>
+</ul>
+
+<p><b>Real Life Example:</b> Train seat booking.</p>
+
+<p><b>Example 1:</b>  
+4 slots, 2 used → efficiency = 50%</p>
+
+<p><b>Example 2:</b>  
+All slots used → efficiency = 100%</p>
+
+<p><b>Advantages:</b></p>
+<ul class="list-disc ml-6">
+<li>No collision</li>
+<li>Efficient usage</li>
+</ul>
+
+<p><b>Disadvantages:</b></p>
+<ul class="list-disc ml-6">
+<li>Idle slots waste bandwidth</li>
+</ul>
+
+<!-- 🎥 VIDEO -->
+
+<h3 class="text-cyan-300 mt-4">🎥 Video Explanation</h3>
+<iframe width="100%" height="250"
+src="https://www.youtube.com/embed/baaPXiQ44vs"
+frameborder="0" allowfullscreen></iframe>
+
+</div>
+
+
+<div class="card">
+
+<h2 class="text-cyan-400 text-xl font-bold mb-4">📊 Comparison of Protocols</h2>
+
+<div class="overflow-x-auto">
+<table class="w-full text-sm border border-slate-700">
+
+<thead class="bg-slate-800 text-cyan-400">
+<tr>
+<th class="p-3 border">Feature</th>
+<th class="p-3 border">Polling</th>
+<th class="p-3 border">Voting</th>
+<th class="p-3 border">Reservation</th>
+</tr>
+</thead>
+
+<tbody class="text-center">
+
+<tr>
+<td class="border p-2">Type</td>
+<td class="border">Controlled Access</td>
+<td class="border">Logical / Distributed</td>
+<td class="border">Controlled Access</td>
+</tr>
+
+<tr>
+<td class="border p-2">Nature</td>
+<td class="border">Sequential</td>
+<td class="border">Decision-based</td>
+<td class="border">Slot-based</td>
+</tr>
+
+<tr>
+<td class="border p-2">Control</td>
+<td class="border">Centralized (Master)</td>
+<td class="border">Decentralized</td>
+<td class="border">Pre-allocated</td>
+</tr>
+
+<tr>
+<td class="border p-2">Collision</td>
+<td class="border">No</td>
+<td class="border">No</td>
+<td class="border">No</td>
+</tr>
+
+<tr>
+<td class="border p-2">Delay</td>
+<td class="border">High</td>
+<td class="border">Medium</td>
+<td class="border">Low</td>
+</tr>
+
+<tr>
+<td class="border p-2">Efficiency</td>
+<td class="border">Low (idle nodes)</td>
+<td class="border">Medium</td>
+<td class="border">High</td>
+</tr>
+
+<tr>
+<td class="border p-2">Numerical</td>
+<td class="border">Delay = n × t</td>
+<td class="border">q > n/2</td>
+<td class="border">Efficiency = used/total</td>
+</tr>
+
+<tr>
+<td class="border p-2">Real-life</td>
+<td class="border">Teacher roll call</td>
+<td class="border">Election voting</td>
+<td class="border">Train reservation</td>
+</tr>
+
+<tr>
+<td class="border p-2">Advantage</td>
+<td class="border">Simple, no collision</td>
+<td class="border">Consistency</td>
+<td class="border">Efficient scheduling</td>
+</tr>
+
+<tr>
+<td class="border p-2">Disadvantage</td>
+<td class="border">Delay, idle waste</td>
+<td class="border">Overhead</td>
+<td class="border">Idle slots waste</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+<!-- ================= REFERENCES ================= -->
+
+<div class="card">
+
+<h2 class="text-cyan-400 text-xl font-bold mb-2">References</h2>
+
+<ul class="list-disc ml-6">
+<li>
+<a href="https://www.mheducation.com/highered/product/data-communications-networking-forouzan/M9780073376226.html" target="_blank" class="text-blue-400 underline">
+Forouzan - Data Communications and Networking
+</a>
+</li>
+
+<li>
+<a href="https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003561" target="_blank" class="text-blue-400 underline">
+Kurose & Ross - Computer Networking
+</a>
+</li>
+
+<li>
+<a href="https://www.pearson.com/en-gb/subject-catalog/p/data-and-computer-communications/P200000003210" target="_blank" class="text-blue-400 underline">
+William Stallings - Data and Computer Communications
+</a>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="helpModal" class="modal">
+  <div class="modal-box">
+    <p>This section contains detailed theory + videos.</p>
+    <button onclick="closeHelp()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- DEVELOPED BY MODAL -->
+
+<div id="devModal" class="modal">
+  <div class="modal-box">
+<h2 class="text-xl font-bold text-cyan-400 text-center mb-4">
+  Developed By
+</h2>
+
+<div class="team-grid">
+
+  <div class="team-card">
+    <img src="images/abhijeet.jpg" class="team-img">
+    <div class="team-name">Abhijeet Kumar</div>
+    <div class="team-reg">24BYB1129</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/shrish.jpg" class="team-img">
+    <div class="team-name">Shrish Ahankari</div>
+    <div class="team-reg">24BYB1150</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/swammi_sir.jpg" class="team-img">
+    <div class="team-name">Dr. Swaminathan Annadurai</div>
+    <div class="team-role">Project Guide</div>
+  </div>
+
+</div>
+
+<div class="text-center mt-4">
+  <button onclick="closeDev()" class="close-btn">Close</button>
+</div>
+
+
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

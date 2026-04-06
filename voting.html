@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Voting</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<!-- NAVBAR -->
+
+<div class="w-full flex justify-between items-center px-6 py-3 border-b border-slate-700 bg-slate-950 sticky top-0">
+  <div class="text-cyan-400 font-bold">Voting Protocol</div>
+
+  <div class="flex gap-3">
+    <button onclick="location.href='learn.html'" class="nav-btn">Learn</button>
+    <button onclick="openHelp()" class="nav-btn">Help</button>
+    <button onclick="downloadPDF()" class="nav-btn">Download</button>
+    <button onclick="openDev()" class="nav-btn">Developed By</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+
+<div class="flex flex-col items-center mt-8">
+
+  <!-- NODES -->
+<div class="simulation-area flex gap-4 mb-6" id="vSim">
+
+  <div class="node" id="v1">1</div>
+  <div class="node" id="v2">2</div>
+  <div class="node" id="v3">3</div>
+  <div class="node" id="v4">4</div>
+  <div class="node" id="v5">5</div>
+
+  <div id="vpacket" class="packet"></div>
+
+</div>
+  <!-- CONTROLS -->
+
+  <div class="card flex gap-4">
+    <button class="start" onclick="startVoting()">Start</button>
+    <button class="reset" onclick="resetVoting()">Reset</button>
+  </div>
+
+  <!-- NUMERICAL -->
+   <div class="bg-slate-900 border border-cyan-500 p-4 rounded-xl w-[420px] text-sm mb-4 shadow-lg">
+  <h3 class="text-cyan-400 font-bold mb-2">📌 Concept Insight</h3>
+  <p><b>Voting</b> is purely logical and conceptual.</p>
+  <p class="mt-1">Based on quorum rule:</p>
+  <p class="text-green-400 font-semibold mt-1">q > n / 2</p>
+  <p class="mt-1 text-gray-400">No heavy calculations are required.</p>
+</div>
+
+<div class="num-box mt-6">
+
+<h3 class="num-title">Voting Quorum Check</h3>
+
+<label class="num-label">Total Nodes</label>
+<input id="totalNodes" type="number" class="num-input" placeholder="e.g. 5">
+
+<label class="num-label">Required Quorum</label>
+<input id="quorum" type="number" class="num-input" placeholder="e.g. 3">
+
+<button onclick="calcVoting()" class="num-btn">Check</button>
+
+<p id="voteResult" class="num-result"></p>
+
+</div>
+
+  <!-- LOG -->
+
+  <div class="card mt-6 w-[420px]">
+    <h3 class="text-cyan-400">Event Log</h3>
+    <div id="vlog" class="log"></div>
+  </div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="helpModal" class="modal">
+  <div class="modal-box">
+    <p>Voting works using quorum system.</p>
+    <button onclick="closeHelp()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- DEVELOPED BY MODAL -->
+
+<div id="devModal" class="modal">
+  <div class="modal-box">
+
+
+<h2 class="text-xl font-bold text-cyan-400 text-center mb-4">
+  Developed By
+</h2>
+
+<div class="team-grid">
+
+  <div class="team-card">
+    <img src="images/abhijeet.jpg" class="team-img">
+    <div class="team-name">Abhijeet Kumar</div>
+    <div class="team-reg">24BYB1129</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/shrish.jpg" class="team-img">
+    <div class="team-name">Shrish Ahankari</div>
+    <div class="team-reg">24BYB1150</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/swammi_sir.jpg" class="team-img">
+    <div class="team-name">Dr. Swaminathan Annadurai</div>
+    <div class="team-role">Project Guide</div>
+  </div>
+
+</div>
+
+<div class="text-center mt-4">
+  <button onclick="closeDev()" class="close-btn">Close</button>
+</div>
+
+
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

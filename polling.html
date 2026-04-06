@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Polling</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<!-- NAVBAR -->
+
+<div class="w-full flex justify-between items-center px-6 py-3 border-b border-slate-700 bg-slate-950 sticky top-0">
+  <div class="text-cyan-400 font-bold">Polling Protocol</div>
+
+  <div class="flex gap-3">
+    <button onclick="location.href='learn.html'" class="nav-btn">Learn</button>
+    <button onclick="openHelp()" class="nav-btn">Help</button>
+    <button onclick="downloadPDF()" class="nav-btn">Download</button>
+    <button onclick="openDev()" class="nav-btn">Developed By</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+
+<div class="flex flex-col items-center mt-8">
+
+  <!-- NODES -->
+
+ <div class="simulation-area flex gap-6 mb-6" id="simArea">
+  <div class="node" id="n1">1</div>
+  <div class="node" id="n2">2</div>
+  <div class="node" id="n3">3</div>
+  <div class="node" id="n4">4</div>
+
+  <div id="packet" class="packet"></div>
+</div>
+  <!-- CONTROLS -->
+
+  <div class="card flex gap-4">
+    <button class="start" onclick="startPolling()">Start</button>
+    <button class="reset" onclick="resetPolling()">Reset</button>
+  </div>
+
+  <!-- NUMERICAL -->
+   <div class="bg-slate-900 border border-cyan-500 p-4 rounded-xl w-[420px] text-sm mb-4 shadow-lg">
+  <h3 class="text-cyan-400 font-bold mb-2">📌 Concept Insight</h3>
+  <p><b>Polling</b> is mostly a conceptual protocol.</p>
+  <p class="mt-1">Numerical exists but is very basic:</p>
+  <p class="text-green-400 font-semibold mt-1">Total delay = n × t</p>
+  <p class="mt-1 text-gray-400">No deep derivations are involved.</p>
+</div>
+
+<div class="num-box mt-6">
+
+<h3 class="num-title">Polling Delay Calculator</h3>
+
+<p class="text-sm mb-2">
+Enter number of nodes (n) and time per node (t).
+</p>
+
+<label class="num-label">Number of Nodes (n)</label>
+<input id="nodes" type="number" class="num-input" placeholder="e.g. 4">
+
+<label class="num-label">Time per Node (ms)</label>
+<input id="time" type="number" class="num-input" placeholder="e.g. 2">
+
+<button onclick="calcPolling()" class="num-btn">Calculate</button>
+
+<p id="pollResult" class="num-result"></p>
+
+</div>
+
+  <!-- LOG -->
+
+  <div class="card mt-6 w-[420px]">
+    <h3 class="text-cyan-400 mb-2">Event Log</h3>
+    <div id="logBox" class="log"></div>
+  </div>
+
+</div>
+
+<!-- HELP -->
+
+<div id="helpModal" class="modal">
+  <div class="modal-box">
+    <p>Click Start to simulate polling.</p>
+    <button onclick="closeHelp()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- DEV -->
+<!-- DEVELOPED BY MODAL -->
+
+<div id="devModal" class="modal">
+  <div class="modal-box">
+
+
+<h2 class="text-xl font-bold text-cyan-400 text-center mb-4">
+  Developed By
+</h2>
+
+<div class="team-grid">
+
+  <div class="team-card">
+    <img src="images/abhijeet.jpg" class="team-img">
+    <div class="team-name">Abhijeet Kumar</div>
+    <div class="team-reg">24BYB1129</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/shrish.jpg" class="team-img">
+    <div class="team-name">Shrish Ahankari</div>
+    <div class="team-reg">24BYB1150</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/swammi_sir.jpg" class="team-img">
+    <div class="team-name">Dr. Swaminathan Annadurai</div>
+    <div class="team-role">Project Guide</div>
+  </div>
+
+</div>
+
+<div class="text-center mt-4">
+  <button onclick="closeDev()" class="close-btn">Close</button>
+</div>
+
+
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

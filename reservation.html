@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Reservation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<!-- NAVBAR -->
+
+<div class="w-full flex justify-between items-center px-6 py-3 border-b border-slate-700 bg-slate-950 sticky top-0">
+  <div class="text-cyan-400 font-bold">Reservation Protocol</div>
+
+  <div class="flex gap-3">
+    <button onclick="location.href='learn.html'" class="nav-btn">Learn</button>
+    <button onclick="openHelp()" class="nav-btn">Help</button>
+    <button onclick="downloadPDF()" class="nav-btn">Download</button>
+    <button onclick="openDev()" class="nav-btn">Developed By</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+
+<div class="flex flex-col items-center mt-8">
+
+  <!-- SLOTS -->
+   <div class="simulation-area flex gap-4 mb-6" id="rSim">
+
+  <div class="slot" id="r1">1</div>
+  <div class="slot" id="r2">2</div>
+  <div class="slot" id="r3">3</div>
+  <div class="slot" id="r4">4</div>
+
+  <div id="rpacket" class="packet"></div>
+
+</div>
+  <!-- CONTROLS -->
+
+  <div class="card flex gap-4">
+    <button class="start" onclick="startRes()">Start</button>
+    <button class="reset" onclick="resetRes()">Reset</button>
+  </div>
+
+  <!-- NUMERICAL -->
+<div class="bg-slate-900 border border-cyan-500 p-4 rounded-xl w-[420px] text-sm mb-4 shadow-lg">
+  <h3 class="text-cyan-400 font-bold mb-2">📌 Concept Insight</h3>
+  <p><b>Reservation</b> has slight numerical aspect.</p>
+  <p class="mt-1">Efficiency calculation:</p>
+  <p class="text-green-400 font-semibold mt-1">Efficiency = Used Slots / Total Slots</p>
+  <p class="mt-1 text-gray-400">Still simple ratio-based calculation.</p>
+</div>
+
+<div class="num-box mt-6">
+
+<h3 class="num-title">Efficiency Calculator</h3>
+
+<label class="num-label">Used Slots</label>
+<input id="usedSlots" type="number" class="num-input" placeholder="e.g. 2">
+
+<label class="num-label">Total Slots</label>
+<input id="totalSlots" type="number" class="num-input" placeholder="e.g. 4">
+
+<button onclick="calcRes()" class="num-btn">Calculate</button>
+
+<p id="resResult" class="num-result"></p>
+
+</div>
+
+  <!-- LOG -->
+
+  <div class="card mt-6 w-[420px]">
+    <h3 class="text-cyan-400">Event Log</h3>
+    <div id="rlog" class="log"></div>
+  </div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="helpModal" class="modal">
+  <div class="modal-box">
+    <p>Reservation allocates time slots before transmission.</p>
+    <button onclick="closeHelp()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- DEVELOPED BY MODAL -->
+
+<div id="devModal" class="modal">
+  <div class="modal-box">
+
+
+<h2 class="text-xl font-bold text-cyan-400 text-center mb-4">
+  Developed By
+</h2>
+
+<div class="team-grid">
+
+  <div class="team-card">
+    <img src="images/abhijeet.jpg" class="team-img">
+    <div class="team-name">Abhijeet Kumar</div>
+    <div class="team-reg">24BYB1129</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/shrish.jpg" class="team-img">
+    <div class="team-name">Shrish Ahankari</div>
+    <div class="team-reg">24BYB1150</div>
+  </div>
+
+  <div class="team-card">
+    <img src="images/swammi_sir.jpg" class="team-img">
+    <div class="team-name">Dr. Swaminathan Annadurai</div>
+    <div class="team-role">Project Guide</div>
+  </div>
+
+</div>
+
+<div class="text-center mt-4">
+  <button onclick="closeDev()" class="close-btn">Close</button>
+</div>
+
+
+  </div>
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
